@@ -6,23 +6,25 @@ var add = [];
 
 elForm.addEventListener("submit", function(evt){
     evt.preventDefault();
+
+    var elInputVal = elInput.value
   
     var list = {
-        id: add.length,
-        title: elInput.value,
+        id: add.length+1,
+        title: "." + elInputVal,
     };
 
-    add.push(list.title);
+    add.push(list);
 
     elList.innerHTML = "";
 
     for (var item of add ) {
 
-        var newText = document.createElement("li");
+        var newLi = document.createElement("li");
 
-        newText.textContent = item;
+        newLi.textContent = item.id + item.title;
 
-        elList.appendChild(newText);
+        elList.appendChild(newLi);
 
         elInput.value = ""
     };
